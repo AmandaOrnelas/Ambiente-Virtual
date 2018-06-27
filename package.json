@@ -1,0 +1,7 @@
+{
+  "name": "ambientevirtual_AVA",
+  "private": true,
+  "dependencies": {
+    "clippyjs": "0.0.3"
+  }
+}

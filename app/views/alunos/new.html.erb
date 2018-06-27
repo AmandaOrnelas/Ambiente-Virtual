@@ -1,0 +1,36 @@
+<% provide(:title, 'Sign up') %>
+<head>
+<title><%= yield(:title) %> | Ambiente Virtual de Aprendizagem</title>
+</head>
+
+<body>
+<%= link_to "<< Página Inicial", root_path %>
+<br>
+<h1>Sign up</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@aluno, url: signupaluno_path) do |f| %>
+      
+
+      <%= f.label :nome %>
+      <%= f.text_field :nome, class: 'form-control' %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+
+      <%= f.label :cpf %>
+      <%= f.text_field :cpf, class: 'form-control' %>
+
+      <%= f.label :nivel %>
+      <%= f.text_field :nivel, class: 'form-control' %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.submit "Create my account", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>  
+
+</body>
