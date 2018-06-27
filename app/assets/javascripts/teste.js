@@ -9,6 +9,11 @@
     }
     
 
+  function falar(){
+
+   alert("HI");
+   agent.speak('Teste Clippy.');
+  }
 
 
     function funcao1(){

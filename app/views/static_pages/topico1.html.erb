@@ -54,7 +54,32 @@
   }
 </script>
 
+<script type="text/javascript">
+    var i = 30; // segundos
+    function contagemRegressiva(no_os,id,codigo){
+    if(i == 0){
+     window.setTimeout(900)
+     var name = document.getElementById('name').innerHTML;
 
+     alert (name);
+     i = -1;
+    }else{
+      if (i==-1){
+// faz nada
+      }else{
+
+        i--;
+        document.getElementById('cronometro').innerHTML = i + ' segundos';
+       }
+    }
+    }
+    setInterval("contagemRegressiva()", 1000);
+
+</script>
+
+
+
+<!-- FUNCIONANDO, BASTA DESCOMENTAR
 <script>
 function formatatempo(segs) {
 
@@ -112,7 +137,7 @@ function reinicia(){
   interval = setInterval("conta();",1000);
 }
 </script>
-
+-->
 
 
 <script type="text/javascript">
@@ -139,7 +164,17 @@ function tagNome() {
 
 <%= link_to "<< Voltar", topicos_path %>
 <center>
-    
+ 
+
+
+
+<if aluno.logged_in?>
+   <div id="name" >Logado como <%= current_user.name %></div> 
+<end>
+<!--<div class="digitos"></div>            <div class="cronometro" id="cronometro">30 segundos</div>-->
+
+
+
   <h1> Tópico 1
 
   <br><br>
@@ -212,9 +247,11 @@ function tagNome() {
         <button type="button" class="btn btn-default btn-next" data-toggle="modal" data-target="#myModalClasse2" onclick="closenext()" data-dismiss="modal">Next</button>
      
 
-         <%= label_tag :tempo, class: "form-control", id: "cronometro" do %>
+         <!-- <%= label_tag :tempo, class: "form-control", id: "cronometro" do %>
            <span id="counter">00:00:00</span>
-         <% end %>
+         <% end %> -->
+
+         <div class="digitos"></div>            <div class="cronometro" id="cronometro">30 segundos</div>
 
 
      
@@ -523,8 +560,6 @@ function tagNome() {
     </div>
   </div>
 </div>
-
-
 
 
 
