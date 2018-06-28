@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
   
+  get 'chapter_test_time/new'
+
+  get 'test/new'
+
+  get 'content/new'
+
+  get 'chapter/new'
+
+  get 'user_matter/new'
+
+  get 'matter/new'
+
   devise_for :users, :controllers => { registrations: 'registrations' }
   
 
