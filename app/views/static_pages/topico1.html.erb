@@ -11,8 +11,90 @@
 <!-- Clippy.js -->
 <script src="clippy.min.js"></script>
 
+
 <!-- Init script -->
-<script type="text/javascript">
+
+<script>
+
+  function formatatempo(segs) {
+
+
+  min = 0;
+  hr = 0;
+
+  while(segs>=60) {
+  if (segs >=60) {
+  segs = segs-60;
+  min = min+1;
+  }
+  }
+
+  while(min>=60) {
+  if (min >=60) {
+  min = min-60;
+  hr = hr+1;
+  }
+  }
+
+  if (hr < 10) {hr = "0"+hr}
+  if (min < 10) {min = "0"+min}
+  if (segs < 10) {segs = "0"+segs}
+  fin = hr+":"+min+":"+segs
+  return fin;
+  }
+  var segundos = 0; //inicio do cronometro
+  function conta() {
+  segundos++;
+  document.getElementById("counter").innerHTML = formatatempo(segundos);
+  }
+
+  function inicia(){
+  interval = setInterval("conta();",1000);
+  }
+
+  function para(){
+  clearInterval(interval);
+  tagNome();
+  }
+
+  function zera(){
+  clearInterval(interval);
+  segundos = 0;
+  document.getElementById("counter").innerHTML = formatatempo(segundos);
+  } 
+
+  function reinicia(){
+    clearInterval(interval);
+    segundos = 0;
+    document.getElementById("counter").innerHTML = formatatempo(segundos);
+    interval = setInterval("conta();",1000);
+  }
+
+
+
+  function tagNome() {
+    x = document.getElementById(cronometro.id);
+    y = x.innerHTML;
+
+    z = y.replace('<span id="counter">', '');
+    time = z.replace('</span>', '');
+    //alert(time); - mensagem é mostrada quando fecha a tela
+        if (time.includes("00:00:02")){
+          alert("FUNFOU");
+          agent.speak('Teste Clippy.');
+        }else{
+          alert("NÃO DEU");
+        }
+    $("#tempo").val(time);
+  
+
+   
+  
+  
+  }
+
+  
+
     clippy.load('F1', function(agent) {
         // Do anything with the loaded agent
         agent.show();
@@ -29,20 +111,18 @@
           
         }
 
-
+        
+        
 
     });
-</script>
 
+      
+    function falar(){
+        var testando="teste";
+          alert("Ola");
+         }
+       
 
-
-<script type="text/javascript">
-  
-  function falar(){
-
-   alert("HI");
-   agent.speak('Teste Clippy.');
-  }
 
 </script>
 
@@ -54,7 +134,19 @@
   }
 </script>
 
+
+
+
+<script>
+</script>
+
+
+
 <script type="text/javascript">
+</script>
+
+
+<!-- <script type="text/javascript">
     var i = 30; // segundos
     function contagemRegressiva(no_os,id,codigo){
     if(i == 0){
@@ -75,88 +167,7 @@
     }
     setInterval("contagemRegressiva()", 1000);
 
-</script>
-
-
-
-<!-- FUNCIONANDO, BASTA DESCOMENTAR
-<script>
-function formatatempo(segs) {
-
-//function por Augusto Claro
-//augustoclaro1@hotmail.com
-//www.seven3d.com.br
-min = 0;
-hr = 0;
-
-while(segs>=60) {
-if (segs >=60) {
-segs = segs-60;
-min = min+1;
-}
-}
-
-while(min>=60) {
-if (min >=60) {
-min = min-60;
-hr = hr+1;
-}
-}
-
-if (hr < 10) {hr = "0"+hr}
-if (min < 10) {min = "0"+min}
-if (segs < 10) {segs = "0"+segs}
-fin = hr+":"+min+":"+segs
-return fin;
-}
-var segundos = 0; //inicio do cronometro
-function conta() {
-segundos++;
-document.getElementById("counter").innerHTML = formatatempo(segundos);
-}
-
-function inicia(){
-interval = setInterval("conta();",1000);
-}
-
-function para(){
-clearInterval(interval);
-tagNome();
-}
-
-function zera(){
-clearInterval(interval);
-segundos = 0;
-document.getElementById("counter").innerHTML = formatatempo(segundos);
-} 
-
-function reinicia(){
-  clearInterval(interval);
-  segundos = 0;
-  document.getElementById("counter").innerHTML = formatatempo(segundos);
-  interval = setInterval("conta();",1000);
-}
-</script>
--->
-
-
-<script type="text/javascript">
-  
-function tagNome() {
- x = document.getElementById(cronometro.id);
- y = x.innerHTML;
-
- z = y.replace('<span id="counter">', '')
- time = z.replace('</span>', '')
- //alert(time); - mensagem é mostrada
- $("#tempo").val(time);
-
-
-
-}
-
-</script>
-
+</script> -->
 
 
 
@@ -175,7 +186,7 @@ function tagNome() {
 
 
 
-  <h1> Tópico 1
+  <h1> Tópico 1 - Conceitos importantes
 
   <br><br>
 
@@ -193,14 +204,19 @@ function tagNome() {
   <br><br>
 
   <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModalHeranca1" onclick="inicia()">
-    Herança
+    Resumindo
   </button>
 
    <br><br>
 
   <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModalPolimorfismo1" onclick="inicia()">
-    Polimorfismo
+    ---
   </button>
+
+  <br><br>
+
+  
+<%= link_to "Prova do capítulo".html_safe, provas_path, :class => "btn btn-primary btn-lg" %>
 
 </center>
 
@@ -247,11 +263,11 @@ function tagNome() {
         <button type="button" class="btn btn-default btn-next" data-toggle="modal" data-target="#myModalClasse2" onclick="closenext()" data-dismiss="modal">Next</button>
      
 
-         <!-- <%= label_tag :tempo, class: "form-control", id: "cronometro" do %>
+         <%= label_tag :tempo, class: "form-control", id: "cronometro" do %>
            <span id="counter">00:00:00</span>
-         <% end %> -->
+         <% end %> 
 
-         <div class="digitos"></div>            <div class="cronometro" id="cronometro">30 segundos</div>
+         <!-- <div class="digitos"></div>            <div class="cronometro" id="cronometro">30 segundos</div>-->
 
 
      

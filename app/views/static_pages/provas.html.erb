@@ -1,0 +1,121 @@
+<script src="jquery.1.7.min.js"></script>
+
+<script type="text/javascript">
+	function testando(){
+  
+    
+	var question1 = document.querySelector('input[name=question1]:checked').value;
+	var question2 = document.querySelector('input[name=question2]:checked').value;
+	var question3 = document.querySelector('input[name=question3]:checked').value;
+	var question4 = document.querySelector('input[name=question4]:checked').value;
+	var question5 = document.querySelector('input[name=question5]:checked').value;
+	var question6 = document.querySelector('input[name=question6]:checked').value;
+	var question7 = document.querySelector('input[name=question7]:checked').value;
+	var question8 = document.querySelector('input[name=question8]:checked').value;
+	var question9 = document.querySelector('input[name=question9]:checked').value;
+	var question10 = document.querySelector('input[name=question10]:checked').value;
+
+	var nota = 0;
+	//SUPONDO QUE O GABARITO DAS QUESTÕES SEJA: 1- SIM(1), 2- NÃO(0), 3- SIM(1), 4- NÃO(0), 5- SIM(1), 6- NÃO(0), 7- SIM(1), 8- NÃO(0), 9- SIM(1), 10- NÃO(0)
+	if (question1=='1'){
+		nota = nota +1;
+	}
+	if (question2=='0'){
+		nota = nota +1;
+	}
+	if (question3=='1'){
+		nota = nota +1;
+	}
+	if (question4=='0'){
+		nota = nota +1;
+	}
+	if (question5=='1'){
+		nota = nota +1;
+	}
+	if (question6=='0'){
+		nota = nota +1;
+	}
+	if (question7=='1'){
+		nota = nota +1;
+	}
+	if (question8=='0'){
+		nota = nota +1;
+	}
+	if (question9=='1'){
+		nota = nota +1;
+	}
+	if (question10=='0'){
+		nota = nota +1;
+	}
+
+
+
+	if (nota>=6){
+		alert ("VOCẼ PASSOU! PARABÉNS! Sua nota foi: " +nota);		
+	}else{
+		alert("Você não atigiu a nota mínima na prova! Tente outra vez! Sua nota foi: "+nota);
+	}
+
+	
+	}
+</script>
+
+<center><b><h2>Capítulo 1 - Prova:</h2></b></center>
+<br><br>
+
+<%= form_tag(controller: "test", action: "create", method: "post", class: "nifty_form", onSubmit: "testando()") do %>  
+
+
+	<label>Pergunta 1</label>  
+    <%= radio_button_tag :question1, 1 %> SIM <br/>
+    <%= radio_button_tag :question1, 0 %> NÃO <br/>
+<br>
+    <label>Pergunta 2</label>  
+    <%= radio_button_tag :question2, 1 %> SIM <br/>
+    <%= radio_button_tag :question2, 0 %> NÃO <br/>
+
+<br>
+    <label>Pergunta 3</label>  
+    <%= radio_button_tag :question3, 1 %> SIM <br/>
+    <%= radio_button_tag :question3, 0 %> NÃO <br/>
+
+<br>
+    <label>Pergunta 4</label>  
+    <%= radio_button_tag :question4, 1 %> SIM <br/>
+    <%= radio_button_tag :question4, 0 %> NÃO <br/>
+
+<br>
+    <label>Pergunta 5</label>  
+    <%= radio_button_tag :question5, 1 %> SIM <br/>
+    <%= radio_button_tag :question5, 0 %> NÃO <br/>
+
+<br>
+    <label>Pergunta 6</label>  
+    <%= radio_button_tag :question6, 1 %> SIM <br/>
+    <%= radio_button_tag :question6, 0 %> NÃO <br/>
+
+<br>
+    <label>Pergunta 7</label>  
+    <%= radio_button_tag :question7, 1 %> SIM <br/>
+    <%= radio_button_tag :question7, 0 %> NÃO <br/>
+
+<br>
+    <label>Pergunta 8</label>  
+    <%= radio_button_tag :question8, 1 %> SIM <br/>
+    <%= radio_button_tag :question8, 0 %> NÃO <br/>
+
+<br>
+    <label>Pergunta 9</label>  
+    <%= radio_button_tag :question9, 1 %> SIM <br/>
+    <%= radio_button_tag :question9, 0 %> NÃO <br/>
+
+<br>
+    <label>Pergunta 10</label>  
+    <%= radio_button_tag :question10, 1 %> SIM <br/>
+    <%= radio_button_tag :question10, 0 %> NÃO <br/>
+
+
+
+  <%= submit_tag "Save", :onclick => "return testando()" %>
+
+<% end %>

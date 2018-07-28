@@ -18,6 +18,10 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   root :to => "home#index"
 
+  post   '/teste',   to: 'static_pages#teste'
+  get   '/teste',   to: 'static_pages#teste'
+
+  get  '/provas',   to: 'static_pages#provas'
   get  '/help',    to: 'static_pages#help'
   get  '/about',   to: 'static_pages#about'
   get  '/contact', to: 'static_pages#contact'
@@ -26,6 +30,8 @@ Rails.application.routes.draw do
   post '/signupaluno',  to: 'alunos#create'
 
   post '/signupadministrador',  to: 'administradors#create'
+
+  post '/test', to: 'test#create'
 
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
@@ -38,6 +44,7 @@ Rails.application.routes.draw do
   get '/topico3', to: 'static_pages#topico3'
   get '/topico4', to: 'static_pages#topico4'
   get '/topico5', to: 'static_pages#topico5'
+  get '/topico6', to: 'static_pages#topico6'
   get '/topicos', to: 'static_pages#topicos'
 
 
@@ -49,6 +56,8 @@ Rails.application.routes.draw do
 
   resources :administradors
   resources :alunos
+
+  resources :test
 
    root 'static_pages#home'
 

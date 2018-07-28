@@ -1,8 +1,4 @@
-<script>
-function logou(){
-  alert ("Seja bem vindo!");  
-}
-</script>
+
 
 <!DOCTYPE html>
 <html>
@@ -18,9 +14,9 @@ function logou(){
   <body>
     <%= render 'layouts/header' %>
     <% flash.each do |name, msg| %>
-      <%= content_tag(:div, "aaaaaaaaaaaaaaaaaaaa", class: "alert alert-info") %>
+        <%= content_tag(:div, msg, class: "alert alert-info") %>
 
-    <% end %>
+<% end %>
     <div class="container">
 
       <p class="notice"><%= notice %></p>
