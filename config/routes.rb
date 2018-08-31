@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
-  get 'chapter_test_time/new'
+  get 'chapter_test_times/new' 
+  get 'chapter_test_times/edit'
 
   get 'test/new'
 
@@ -56,6 +57,9 @@ Rails.application.routes.draw do
 
   resources :administradors
   resources :alunos
+
+  resources :chapter_test_times
+
 
   resources :test
 

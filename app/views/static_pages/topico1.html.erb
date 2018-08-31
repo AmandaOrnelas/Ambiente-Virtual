@@ -78,13 +78,49 @@
 
     z = y.replace('<span id="counter">', '');
     time = z.replace('</span>', '');
-    //alert(time); - mensagem é mostrada quando fecha a tela
-        if (time.includes("00:00:02")){
-          alert("FUNFOU");
-          agent.speak('Teste Clippy.');
-        }else{
-          alert("NÃO DEU");
-        }
+    alert(time); 
+   
+   /////////////////        var a = document.getElementById("total_time").innerHtml = "ABC";
+
+
+
+           alert(a); 
+
+
+
+        //if (time.includes("00:00:02")){
+        //  alert("FUNFOU");
+        //  agent.speak('Teste Clippy.');
+        //}else{
+         // alert("NÃO DEU");
+        //}
+
+            var user = $(".name").text();
+            var chapter = 1;
+            
+
+           // var db = openDatabase('first', '1.0', 'my first database', 2 * 1024 * 1024);
+           // db.transaction(function (tx) {
+            //    tx.executeSql("CREATE TABLE IF NOT EXISTS chapter_test_times (id INTEGER PRIMRY KEY, user_id TEXT, chapter_id TEXT, total_time TEXT)");
+            //});
+
+            //db.transaction(function (tx) {
+             //   tx.executeSql("UPDATE chapter_test_times SET total_time = ? WHERE user_id==? and chapter_id==?", [time, user, chapter]);
+            //});
+
+            alert(valorDaDiv);
+
+ 
+        
+
+
+
+    var value = time;
+    var el = document.createElement('script');
+    el.setAttribute('src', 'path_to_controller' + '?value=' + value);
+    document.body.appendChild(el);
+
+
     $("#tempo").val(time);
   
 
@@ -137,11 +173,6 @@
 
 
 
-<script>
-</script>
-
-
-
 <script type="text/javascript">
 </script>
 
@@ -171,6 +202,12 @@
 
 
 
+  
+
+
+
+
+
 
 
 <%= link_to "<< Voltar", topicos_path %>
@@ -178,10 +215,17 @@
  
 
 
+   <%= form_for Chapter_test_time.new do |f| %>
+       <if aluno.logged_in?>
+         <div class="name" ><%= current_user.id %></div> 
+      <end>
+          <%= f.text_field :user_id, class: 'form-control', :value => current_user.id %>
+          <%= f.text_field :total_time, class: 'form-control' %>
+          
+  <% end %>
 
-<if aluno.logged_in?>
-   <div id="name" >Logado como <%= current_user.name %></div> 
-<end>
+      <%= link_to 'Send Thanks', new_chapter_test_time_path(@chapterTestTime, :type => "thanks") %>
+
 <!--<div class="digitos"></div>            <div class="cronometro" id="cronometro">30 segundos</div>-->
 
 
@@ -237,19 +281,12 @@
       <div class="modal-body">
 
       <div align="justify"> 
-      <h4>
-        <b>Classe:</b> descreve que propriedades (ou <b>atributos</b>) um objeto terá e qual o comportamento dos Objetos da classe (são os chamados <b>métodos</b>).
-        <br>
-        <b>Especificação de uma classe:</b> é composta de <u>nome da classe</u>, <u>conjunto de atributos</u> e <u>conjunto de métodos</u>.
-        <br>
-        <b>Nome da classe:</b> é um identificador para a classe, que possibilita referenciá-la posteriormente.
-        <b>EX:</b> pode referenciá-la no momento da criação de um objeto
-      </h4>
+      
       </div>
 
       <br>
       <center>
-      <%=image_tag("classe.png", alt: "Logo", width: "450px")%>
+      <%=image_tag("classe1.png", alt: "Logo", width: "450px")%>
 
      <!-- <img alt="Logo" src="app/assets/images/classe.png" /> -->
         <br>
@@ -294,17 +331,9 @@
       <div class="modal-body">
 
       <div align="justify"> 
-      <h4>
-       <b>Conjunto de atributos:</b> Descreve as propriedade da classe. Cada atributo possui um nome e um tipo associado. Pode ter também um <u>valor_default opcional</u>.
-        <br><br>
-          <b>Tipo:</b> Pode ser o nome de uma classe (nas lingiagens de programação orientadas a obejetos pura). Ou do grupo de tipos primitivos das lingagens de POO como inteiro, real, caracter.
-          <br><br>
-          <b>Valor_default opcional:</b> especifica um valor inicial para o atributo.
-          <br><br>
-        <b>Conjunto de métodos:</b> Definem as funcionalidades da classe, isto é, define o que será possível fazer com os objetos dessa classe. É um equivalente a um procedimento ou uma função, porém manipula apenas suas variáveis locais e atributos definidos para a classe. Cada método é especificado por uma assinatura, composta por um <u>identificador</u> para o método (<u>nome</u> do método), o <u>tipo</u> para o <u>valor</u> de retorno e sua lista de argumentos, sendo cada argumento identificado por seu tipo e nome. <br> <br>
         </div>
 
-         <center><%=image_tag("classepessoa.png", alt: "Logo", width: "400px")%></center>
+         <center><%=image_tag("classe2.png", alt: "Logo", width: "600px")%></center>
       </h4>
       </div>
 
@@ -333,10 +362,10 @@
       
       <h4> 
         <div align="justify"> 
-        <b>Mecanismo de sobrecarga (overloading):</b>  através desse mecanismo dois métodos de uma mesma classe podem ter o mesmo nome, contanto que tenham assinaturas diferentes, ou seja, com argumentos diferentes. Nesse caso não há conflito, pois o compilador é capaz de detectar qual método deve ser escolhido com base nos tipos dos argumentos de cada método. A escolha do método correto é chamada de <u>ligação prematura (early binding)</u>. <br><br>
+        
         </div>
 
-         <center><%=image_tag("sobrecarga.png", alt: "Logo", width: "500px")%></center>
+         <center><%=image_tag("classe3.png", alt: "Logo", width: "600px")%></center>
 
       </h4>
       
@@ -367,13 +396,9 @@
       <h4>
 
         <div align="justify"> 
-        <b>Visibilidade:</b> Pode ser para métodos e atributos. <br><br>
-        Três categorias de visibilidade podem ser definidas: <br>
-        <b>Público:</b> O atributo ou método de um objeto pertencente a essa classe pode ser acessado por qualquer outro objeto (visibilidade externa total). Simbolizado em UML por +. <br>
-        <b>Privado:</b> O atributo ou método de um objeto pertencente a essa classe não pode ser acessado por nenhum outro objeto (nenhuma visibilidade externa). Simbolizado em UML por -. <br>
-        <b>Protegido:</b> O atributo ou método de um objeto pertencente a essa classe pode ser acessado apenas por objetos de classes que tenham herança dessa classe, ou seja, pode ser acessado apenas por objetos de classes derivadas dessa classe. Simbolizado em UML por #. <br> <br><br>
+        
         </div>
-        <center><%=image_tag("simbolosvisibilidade.png", alt: "Logo", width: "500px")%></center>
+        <center><%=image_tag("classe4.png", alt: "Logo", width: "600px")%></center>
 
       </h4>
       
@@ -408,15 +433,12 @@
       
       <h4>
         <div align="justify"> 
-        <b>Objetos:</b> São instâncias de classes. Em um sistema implementado em linguagens orientadas a objetos, basicamente todo o processamento ocorre através de objetos. <br>
         </div>
 
-        <center><%=image_tag("representacaoobjeto.png", alt: "Logo", width: "500px")%></center>
+        <center><%=image_tag("objetos1.png", alt: "Logo", width: "600px")%></center>
         
         <div align="justify"> 
-        Em linguagens de programação orientadas a objetos, tudo pode ser potencialmente representado como um objeto. Sob o ponto de vista desse paradigma, um objeto é similar a uma variável normal.<br>
-        <b>EX:</b> Uma variável do tipo int definida em uma linguagem de programação como C ou Java possui: espaço em memória para armazenar seu estado (valor) e um conjunto de operações que podem ser aplicadas por meio dos operadores para valores inteiros definidos pela linguagem. <br>
-        Da mesma maneira: um objeto criado possui um espaço em memória para armazenar seu estado (valores dos seus atributos) e um conjunto de operações aplicáveis a esse objeto (métodos definidos pela classe).
+        
         </div>
 
       </h4>
