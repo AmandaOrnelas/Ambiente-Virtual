@@ -1,17 +1,14 @@
 Rails.application.routes.draw do
   
-  get 'chapter_test_times/new' 
-  get 'chapter_test_times/edit'
+  resources :chapter_test_time
+  resources :administradors
+  resources :alunos
+  resources :test
+  resources :chapter
+  resources :user_matter
+  resources :content
+  resources :matter
 
-  get 'test/new'
-
-  get 'content/new'
-
-  get 'chapter/new'
-
-  get 'user_matter/new'
-
-  get 'matter/new'
 
   devise_for :users, :controllers => { registrations: 'registrations' }
   
@@ -19,8 +16,6 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   root :to => "home#index"
 
-  post   '/teste',   to: 'static_pages#teste'
-  get   '/teste',   to: 'static_pages#teste'
 
   get  '/provas',   to: 'static_pages#provas'
   get  '/help',    to: 'static_pages#help'
@@ -32,7 +27,7 @@ Rails.application.routes.draw do
 
   post '/signupadministrador',  to: 'administradors#create'
 
-  post '/test', to: 'test#create'
+
 
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
@@ -53,17 +48,14 @@ Rails.application.routes.draw do
   get "testeusuario", to: 'static_pages#teste'
 
 
+   
 
-
-  resources :administradors
-  resources :alunos
-
-  resources :chapter_test_times
-
-
-  resources :test
-
-   root 'static_pages#home'
-
-
+ # post   '/teste',   to: 'static_pages#teste'
+ # get   '/teste',   to: 'static_pages#teste'
+ #get 'chapter/new'
+ #get 'user_matter/new'
+ #get 'content/new'
+ #get 'matter/new'
+ #get 'chapter_test_time/new' 
+#get 'chapter_test_time/edit'
 end
