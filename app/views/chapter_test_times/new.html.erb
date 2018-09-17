@@ -1,3 +1,10 @@
 <h1>Chapter_test_time#new</h1>
-<p>Find me in app/views/content/new.html.erb</p>
+
+<%= simple_form_for @chapter_test_time do |f| %>
+  <%= f.input :id %>
+  <%= f.input :user_id %>
+  <%= f.input :chapter_id %>
+  <%= f.input :total_time %>
+  <%= f.button :submit %>
+<% end %>
 

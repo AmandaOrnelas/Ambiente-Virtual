@@ -11,6 +11,7 @@ gem 'turbolinks',   '5.0.1'
 gem 'jbuilder',     '2.7.0'
 gem 'bcrypt',         '3.1.11'
 gem 'devise' 
+gem 'simple_form'
 
 
 
