@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
   
-  resources :chapter_test_time
+  resources :chapter_test_times
   resources :administradors
   resources :alunos
   resources :test
-  resources :chapter
-  resources :user_matter
-  resources :content
-  resources :matter
+  resources :chapters
+  resources :user_matters
+  resources :contents
+  resources :matters
 
 
   devise_for :users, :controllers => { registrations: 'registrations' }
