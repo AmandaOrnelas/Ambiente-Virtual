@@ -1,0 +1,4 @@
+class Materia < ApplicationRecord
+
+
+end

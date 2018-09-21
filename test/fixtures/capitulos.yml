@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  titulo: MyString
+  materia_id: 1
+  tempo_medio: MyText
+  tempo_maximo: MyText
+
+two:
+  titulo: MyString
+  materia_id: 1
+  tempo_medio: MyText
+  tempo_maximo: MyText

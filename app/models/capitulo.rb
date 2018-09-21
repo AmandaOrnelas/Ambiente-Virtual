@@ -1,0 +1,2 @@
+class Capitulo < ApplicationRecord
+end

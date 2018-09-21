@@ -1,0 +1,149 @@
+<% provide(:title, 'Tópico 1') %>
+<!-- Add the stylesheet to the head -->
+<link rel="stylesheet" type="text/css" media="all">
+
+
+
+<!-- Add these scripts to  the bottom of the page -->
+<!-- jQuery 1.7+ -->
+<script src="jquery.1.7.min.js"></script>
+
+
+<!-- Clippy.js -->
+
+<script type="text/javascript" src="assets/javascripts/teste.js"></script>
+
+
+
+<!-- Init script -->
+<script type="text/javascript">
+// Using global config
+window.CLIPPY_CDN = './agents/'
+    clippy.load('F1', function(agent) {
+        // Do anything with the loaded agent
+        agent.show();
+        agent.animate();
+        agent.stop();
+        agent.speak('Testeando animação.');
+        
+        
+        agent.play('Searching');agent.play('Searching');
+        agent.play('Wave');agent.play('Wave');
+        agente.stop();
+        
+
+    });
+
+ 
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+    //PEGAR NIVEL
+    //var nivel = "<?php echo $nivel; ?>";
+    //alert(nivel); APARECE UMA TELA ALERTANDO O VALOR DA VARIAVEL NIVEL
+    
+    if (nivel == 1){
+        window.onload = function(){
+        document.getElementById('linkDesabilitado2').onclick = function(){ return false }
+        document.getElementById('linkDesabilitado3').onclick = function(){ return false }
+        }
+    }else if(nivel == 2){
+        window.onload = function(){
+        document.getElementById('linkDesabilitado3').onclick = function(){ return false }
+        }
+    }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+<center>
+
+
+
+    <h1>    Capítulos </h1>
+
+    <h2>
+
+        <br><br><br><br>
+<!--    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModalClasse1" onclick="inicia()"> Teste
+  </button> -->
+    <input type="button" onclick="funcao1()" value="Exibir Alert" />
+
+
+
+
+
+
+
+
+
+
+<br>
+LINKS ERRADOS<br>
+
+
+      <% @capitulos.each do |capitulo| %>
+    <tr>
+      <td><%= link_to capitulo.titulo, capitulo_path(capitulo) %></td> <br><br>
+    </tr>
+  <% end %>
+
+
+
+
+
+
+__________________________________________________________________________________________________________
+
+
+        <%= link_to "Tópico 1 – Conceitos importantes", capitulo1_path %>
+        <br><br>
+        <%= link_to "Tópico 2 – Conceitos chave de Orientação a Objetos", capitulo2_path %>
+        <br><br>
+        <%= link_to "Tópico 3 – A Programação Orientada a Objetos usando JAVA", capitulo3_path %>
+        <br><br>
+        <%= link_to "Tópico 4 – Exercícios", capitulo4_path %>
+        <br><br>
+        <%= link_to "Tópico 5 – Prova final", capitulo5_path %>
+        <br><br>
+   <!--     <a href='/topico1' id='linkDesabilitado2'> Link teste desabilitar </a> -->
+
+        <!-- echo "<td> <h3><a href='modal/modalTopico2.php' id='linkDesabilitado2'> Unidade 2 </a> </h3></td>"; -->
+
+    </h2>
+
+</center>
+
+
+<br><br><br><br>
+<if aluno.logged_in?>
+   <div>Logado como <strong><%= current_user.name %></strong>.</div> <!-- ESTÁ FUNCIONANDO OK! - Qqr problema, conferir se casdatro está correto -->
+<end>
+

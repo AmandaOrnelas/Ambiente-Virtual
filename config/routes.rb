@@ -3,11 +3,11 @@ Rails.application.routes.draw do
   resources :chapter_test_times
   resources :administradors
   resources :alunos
-  resources :test
-  resources :chapters
-  resources :user_matters
-  resources :contents
-  resources :matters
+  resources :provas
+  resources :capitulos
+  resources :materias_users
+  resources :conteudos
+  resources :materias
 
 
   devise_for :users, :controllers => { registrations: 'registrations' }
@@ -35,13 +35,13 @@ Rails.application.routes.draw do
 
 
   get '/alunos', to: 'alunos#index'
-  get '/topico1', to: 'static_pages#topico1'
-  get '/topico2', to: 'static_pages#topico2'
-  get '/topico3', to: 'static_pages#topico3'
-  get '/topico4', to: 'static_pages#topico4'
-  get '/topico5', to: 'static_pages#topico5'
-  get '/topico6', to: 'static_pages#topico6'
-  get '/topicos', to: 'static_pages#topicos'
+  get '/capitulo1', to: 'static_pages#capitulo1'
+  get '/capitulo2', to: 'static_pages#capitulo2'
+  get '/capitulo3', to: 'static_pages#capitulo3'
+  get '/capitulo4', to: 'static_pages#capitulo4'
+  get '/capitulo5', to: 'static_pages#capitulo5'
+  get '/capitulo6', to: 'static_pages#capitulo6'
+  get '/capitulos', to: 'static_pages#capitulos'
 
 
 

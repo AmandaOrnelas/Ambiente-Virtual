@@ -1,0 +1,65 @@
+-- Describe CHAPTER_TEST_TIMES
+CREATE TABLE "chapter_test_times" (
+	id integer primary key,
+	user_id integer,
+	chapter_id integer,
+	total_time text
+)
+
+
+
+CREATE TABLE "chapters" (
+	id integer primary key,
+	matter_id integer,
+	name text
+	media_time
+	max_time
+)
+
+
+
+CREATE TABLE "exams" (
+	id integer primary key,
+	chapter_id,
+	question1 text,
+	answer1 text,
+	question2 text,
+	answer2 text,
+	question3 text,
+	answer3 text,
+	question4 text,
+	answer4 text,
+	question5 text,
+	answer5 text,
+	question6 text,
+	answer6 text,
+	question7 text,
+	answer7 text,
+	question8 text,
+	answer8 text,
+	question9 text,
+	answer9 text,
+	question10 text,
+	answer10 text
+)
+
+
+
+CREATE TABLE "contents" (
+	id integer primary key,
+	capitulo_id integer,
+	subtitle text,
+	content text,
+	image text,
+	ordem text
+)
+
+
+
+CREATE TABLE "matter_users" (
+	id integer primary key,
+	user_id integer,
+	matter_id integer,
+	chapter_id integer,
+	atual_time text
+)

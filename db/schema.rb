@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180403151326) do
+ActiveRecord::Schema.define(version: 20180921211451) do
 
   create_table "administradors", force: :cascade do |t|
     t.string "nome"
@@ -32,6 +32,37 @@ ActiveRecord::Schema.define(version: 20180403151326) do
     t.datetime "updated_at", null: false
     t.string "password_digest"
   end
+
+  create_table "capitulos", force: :cascade do |t|
+    t.string "titulo"
+    t.integer "materia_id"
+    t.text "tempo_medio"
+    t.text "tempo_maximo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "chapter_test_times", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "chapter_id"
+    t.text "total_time"
+  end
+
+  create_table "materias", id: false, force: :cascade do |t|
+    t.text "id"
+    t.text "nome"
+  end
+
+  create_table "materias_users", id: false, force: :cascade do |t|
+    t.integer "id"
+    t.integer "user_id"
+    t.integer "materia_id"
+    t.integer "capitulo_id"
+    t.text "tempo_atual"
+  end
+
+# Could not dump table "provas" because of following StandardError
+#   Unknown type '' for column 'capitulo_id'
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
