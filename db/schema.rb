@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180924003907) do
+ActiveRecord::Schema.define(version: 20180924123446) do
 
   create_table "administradors", force: :cascade do |t|
     t.string "nome"
@@ -31,6 +31,15 @@ ActiveRecord::Schema.define(version: 20180924003907) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
+  end
+
+  create_table "aulas", force: :cascade do |t|
+    t.string "titulo"
+    t.text "texto"
+    t.integer "conteudo_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["conteudo_id"], name: "index_aulas_on_conteudo_id"
   end
 
   create_table "capitulos", force: :cascade do |t|
