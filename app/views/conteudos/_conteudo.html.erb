@@ -1,4 +1,5 @@
 
+
 <!-- Add the stylesheet to the head -->
 <link rel="stylesheet" type="text/css" href="clippy.css" media="all">
 
@@ -224,33 +225,31 @@
 
 
 
+
+
+
+
   <center>
 
-  <br><br>
 
-  <!-- Button trigger modal -->
+<h2>Conteudo</h2>
+
+<% @capitulo.conteudos.each do |conteudo| %>
+ <!-- Button trigger modal -->
+  
   <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModalClasse1" onclick="inicia()">
   <%= conteudo.subtitulo %> 
   </button>
 
   <br><br>
 
-  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModalObjeto1" onclick="inicia()">
-  <%= conteudo.subtitulo %> 
 
-  </button>
+<% end %>
 
-  <br><br>
 
-  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModalHeranca1" onclick="inicia()">
-  <%= conteudo.subtitulo %>  
-  </button>
 
-   <br><br>
 
-  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModalPolimorfismo1" onclick="inicia()">
-    ---
-  </button>
+
 
   <br><br>
 
