@@ -4,6 +4,8 @@
 
 <script>
 
+
+
   function formatatempo(segs) {
     min = 0;
     hr = 0;
@@ -12,14 +14,14 @@
         if (segs >=60) {
           segs = segs-60;
           min = min+1;
-    }
+        }
     }
 
     while(min>=60) {
       if (min >=60) {
         min = min-60;
         hr = hr+1;
-    }
+      }
     }
 
     if (hr < 10) {hr = "0"+hr}
@@ -100,23 +102,11 @@
            alert("HI");
           
         }
+    });    
 
-        
-        
+</script>
+<script>
 
-    });
-
-      
-    function falar(){
-        var testando="teste";
-          alert("Ola");
-         }
-       
-
-
-  closenext(){
-    $("#myModal .close").click()
-  }
 </script>
 
 
@@ -130,6 +120,8 @@
     
 <center>
 <h2>Conteudo</h2>
+
+
 <% @capitulo.conteudos.each do |conteudo| %>
   
   <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal-<%= conteudo.subtitulo.parameterize %>-1" onclick="inicia()">
@@ -142,7 +134,7 @@
   <% conteudo.aulas.each do |aula| %>
 
 
-  Aula texto: <%= aula.texto %> <br>
+  
 
 
 
@@ -161,6 +153,7 @@
         
             Vem do banco <br>
             <%= aula.texto %>  
+            
         
           </center>   
           </div>
