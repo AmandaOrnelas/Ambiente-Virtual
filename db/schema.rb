@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180924123446) do
+ActiveRecord::Schema.define(version: 20181005205630) do
 
-  create_table "administradors", force: :cascade do |t|
+  create_table "administradores", force: :cascade do |t|
     t.string "nome"
     t.string "email"
     t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
-    t.index ["email"], name: "index_administradors_on_email", unique: true
+    t.index ["email"], name: "index_administradores_on_email", unique: true
   end
 
   create_table "alunos", force: :cascade do |t|
@@ -44,17 +44,10 @@ ActiveRecord::Schema.define(version: 20180924123446) do
 
   create_table "capitulos", force: :cascade do |t|
     t.string "titulo"
-    t.integer "materia_id"
     t.text "tempo_medio"
     t.text "tempo_maximo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "chapter_test_times", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "chapter_id"
-    t.text "total_time"
   end
 
   create_table "conteudos", force: :cascade do |t|
@@ -68,21 +61,15 @@ ActiveRecord::Schema.define(version: 20180924123446) do
     t.index ["capitulo_id"], name: "index_conteudos_on_capitulo_id"
   end
 
-  create_table "materias", id: false, force: :cascade do |t|
-    t.text "id"
-    t.text "nome"
-  end
-
-  create_table "materias_users", id: false, force: :cascade do |t|
-    t.integer "id"
+  create_table "tempo_capitulos", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "materia_id"
     t.integer "capitulo_id"
-    t.text "tempo_atual"
+    t.string "tempo_total"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["capitulo_id"], name: "index_tempo_capitulos_on_capitulo_id"
+    t.index ["user_id"], name: "index_tempo_capitulos_on_user_id"
   end
-
-# Could not dump table "provas" because of following StandardError
-#   Unknown type '' for column 'capitulo_id'
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

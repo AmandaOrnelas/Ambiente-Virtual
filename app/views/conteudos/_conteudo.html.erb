@@ -1,131 +1,7 @@
-<link rel="stylesheet" type="text/css" href="clippy.css" media="all">
-<script src="jquery.1.7.min.js"></script>
-<script src="clippy.min.js"></script>
 
-<script>
-
-
-
-  function formatatempo(segs) {
-    min = 0;
-    hr = 0;
-
-    while(segs>=60) {
-        if (segs >=60) {
-          segs = segs-60;
-          min = min+1;
-        }
-    }
-
-    while(min>=60) {
-      if (min >=60) {
-        min = min-60;
-        hr = hr+1;
-      }
-    }
-
-    if (hr < 10) {hr = "0"+hr}
-    if (min < 10) {min = "0"+min}
-    if (segs < 10) {segs = "0"+segs}
-    fin = hr+":"+min+":"+segs
-    return fin;
-  }
-  var segundos = 0; //inicio do cronometro
-  function conta() {
-    segundos++;
-    document.getElementById("counter").innerHTML = formatatempo(segundos);
-  }
-
-  function inicia(){
-    interval = setInterval("conta();",1000);
-  }
-
-  function para(){
-    clearInterval(interval);
-    tagNome();
-  }
-
-  function zera(){
-    clearInterval(interval);
-    segundos = 0;
-    document.getElementById("counter").innerHTML = formatatempo(segundos);
-  } 
-
-  function reinicia(){
-    clearInterval(interval);
-    segundos = 0;
-    document.getElementById("counter").innerHTML = formatatempo(segundos);
-    interval = setInterval("conta();",1000);
-  }
-
-
-
-  function tagNome() {
-    x = document.getElementById(cronometro.id);
-    y = x.innerHTML;
-
-    z = y.replace('<span id="counter">', '');
-    time = z.replace('</span>', '');
-    alert(time); 
-   
-    alert(a); 
-
-    var user = $(".name").text();
-    var chapter = 1;
-            
-    alert(valorDaDiv);
-
-    var value = time;
-    var el = document.createElement('script');
-    el.setAttribute('src', 'path_to_controller' + '?value=' + value);
-    document.body.appendChild(el);
-
-
-    $("#tempo").val(time);
-    
-  }
-
-  
-
-    clippy.load('F1', function(agent) {
-        // Do anything with the loaded agent
-        agent.show();
-        agent.animate();
-        agent.stop();
-        agent.speak('When all else fails, bind some paper together. My name is Clippy.');
-
-        agent.speak('outra fala');
-        agent.play('Searching');agent.play('Searching');
-        agente.stop();
-        
-        if (counter=="00:00:01"){
-           alert("HI");
-          
-        }
-    });    
-
-</script>
-<script>
-
-</script>
-
-
-
-
-<if aluno.logged_in?>
-<div class="name" >Logado como: <%= current_user.name %></div> 
-<end>
-          
-
-    
 <center>
-<h2>Conteudo</h2>
-
-
-<% @capitulo.conteudos.each do |conteudo| %>
-  
   <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal-<%= conteudo.subtitulo.parameterize %>-1" onclick="inicia()">
-  <%= conteudo.subtitulo %> 
+  <%= conteudo.subtitulo %>
   </button>
 
   <br><br>
@@ -134,7 +10,7 @@
   <% conteudo.aulas.each do |aula| %>
 
 
-  
+
 
 
 
@@ -146,16 +22,16 @@
           <h4 class="modal-title" id="myModalLabel"> <%= aula.titulo %> </h4>
           </div>
           <div class="modal-body">
-          <div align="justify"> 
+          <div align="justify">
           </div>
           <br>
           <center>
-        
+
             Vem do banco <br>
-            <%= aula.texto %>  
-            
-        
-          </center>   
+            <%= aula.texto %>
+
+
+          </center>
           </div>
           <div class="modal-footer">
             <% if index > 1 %>
@@ -168,6 +44,7 @@
              <%= label_tag :tempo, class: "form-control", id: "cronometro" do %>
                <span id="counter">00:00:00</span>
              <% end %>
+
              <button type="button" class="btn btn-default" data-dismiss="modal" onclick="para()">Fechar</button>
           </div>
 
@@ -177,15 +54,11 @@
 
 
 
-    <% index += 1 %>  
+    <% index += 1 %>
   <% end %>
-<% end %>
 
 
 <br><br>
-
-  
-<%= link_to "Prova do capítulo".html_safe, provas_path, :class => "btn btn-primary btn-lg" %>
 
 </center>
 

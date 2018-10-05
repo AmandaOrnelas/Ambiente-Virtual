@@ -1,8 +1,8 @@
 require 'test_helper'
 
-class ChapterTestTimeControllerTest < ActionDispatch::IntegrationTest
+class TempoCapituloControllerTest < ActionDispatch::IntegrationTest
   test "should get new" do
-    get chapter_test_time_new_url
+    get tempo_capitulo_new_url
     assert_response :success
   end
 

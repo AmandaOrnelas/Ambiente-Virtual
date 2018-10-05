@@ -1,4 +1,0 @@
-class Materia < ApplicationRecord
-
-
-end

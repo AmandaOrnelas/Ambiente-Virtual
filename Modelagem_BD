@@ -1,9 +1,9 @@
 -- Describe CHAPTER_TEST_TIMES
-CREATE TABLE "chapter_test_times" (
+CREATE TABLE "tempo_capitulos" (
 	id integer primary key,
 	user_id integer,
 	chapter_id integer,
-	total_time text
+	tempo_total text
 )
 
 

@@ -12,6 +12,8 @@
 //
 //= require rails-ujs
 //= require turbolinks
+//= require jquery
+//= require clippy.min
 
 //= require_tree .
 

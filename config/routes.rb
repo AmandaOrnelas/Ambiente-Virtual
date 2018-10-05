@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  
-  resources :chapter_test_times
+  resources :tempo_capitulos
   resources :administradors
   resources :alunos
   resources :provas
@@ -11,7 +10,7 @@ Rails.application.routes.draw do
 
 
   devise_for :users, :controllers => { registrations: 'registrations' }
-  
+
 
   root 'static_pages#home'
   root :to => "home#index"
@@ -48,7 +47,7 @@ Rails.application.routes.draw do
   get "testeusuario", to: 'static_pages#teste'
 
 
-   
+
 
  # post   '/teste',   to: 'static_pages#teste'
  # get   '/teste',   to: 'static_pages#teste'
@@ -56,6 +55,6 @@ Rails.application.routes.draw do
  #get 'user_matter/new'
  #get 'content/new'
  #get 'matter/new'
- #get 'chapter_test_time/new' 
-#get 'chapter_test_time/edit'
+ #get 'tempo_capitulo/new'
+#get 'tempo_capitulo/edit'
 end

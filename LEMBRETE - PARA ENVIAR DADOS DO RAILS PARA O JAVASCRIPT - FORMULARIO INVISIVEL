@@ -1,8 +1,8 @@
-<%= form_for Chapter_test_time.new do |f| %>
+<%= form_for TempoCapitulo.new do |f| %>
        <if aluno.logged_in?>
-         <div class="name" ><%= current_user.id %></div> 
+         <div class="name" ><%= current_user.id %></div>
       <end>
           <%= f.text_field :user_id, class: 'form-control', :value => current_user.id %>
-          <%= f.text_field :total_time, class: 'form-control' %>
-          
+          <%= f.text_field :tempo_total, class: 'form-control' %>
+
   <% end %>

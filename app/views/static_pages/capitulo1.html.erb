@@ -61,7 +61,7 @@
   clearInterval(interval);
   segundos = 0;
   document.getElementById("counter").innerHTML = formatatempo(segundos);
-  } 
+  }
 
   function reinicia(){
     clearInterval(interval);
@@ -78,13 +78,13 @@
 
     z = y.replace('<span id="counter">', '');
     time = z.replace('</span>', '');
-    alert(time); 
-   
-   /////////////////        var a = document.getElementById("total_time").innerHtml = "ABC";
+    alert(time);
+
+   /////////////////        var a = document.getElementById("tempo_total").innerHtml = "ABC";
 
 
 
-           alert(a); 
+           alert(a);
 
 
 
@@ -97,21 +97,21 @@
 
             var user = $(".name").text();
             var chapter = 1;
-            
+
 
            // var db = openDatabase('first', '1.0', 'my first database', 2 * 1024 * 1024);
            // db.transaction(function (tx) {
-            //    tx.executeSql("CREATE TABLE IF NOT EXISTS chapter_test_times (id INTEGER PRIMRY KEY, user_id TEXT, chapter_id TEXT, total_time TEXT)");
+            //    tx.executeSql("CREATE TABLE IF NOT EXISTS tempo_capitulos (id INTEGER PRIMRY KEY, user_id TEXT, chapter_id TEXT, tempo_total TEXT)");
             //});
 
             //db.transaction(function (tx) {
-             //   tx.executeSql("UPDATE chapter_test_times SET total_time = ? WHERE user_id==? and chapter_id==?", [time, user, chapter]);
+             //   tx.executeSql("UPDATE tempo_capitulos SET tempo_total = ? WHERE user_id==? and chapter_id==?", [time, user, chapter]);
             //});
 
             alert(valorDaDiv);
 
- 
-        
+
+
 
 
 
@@ -122,14 +122,14 @@
 
 
     $("#tempo").val(time);
-  
 
-   
-  
-  
+
+
+
+
   }
 
-  
+
 
     clippy.load('F1', function(agent) {
         // Do anything with the loaded agent
@@ -141,23 +141,23 @@
         agent.speak('outra fala');
         agent.play('Searching');agent.play('Searching');
         agente.stop();
-        
+
         if (counter=="00:00:01"){
            alert("HI");
-          
+
         }
 
-        
-        
+
+
 
     });
 
-      
+
     function falar(){
         var testando="teste";
           alert("Ola");
          }
-       
+
 
 
 </script>
@@ -202,7 +202,7 @@
 
 
 
-  
+
 
 
 
@@ -214,11 +214,11 @@
 Voltar
 
        <if aluno.logged_in?>
-         <div class="name" ><%= current_user.id %></div> 
+         <div class="name" ><%= current_user.id %></div>
       <end>
-          
 
-      <%= link_to 'Send Thanks', new_chapter_test_time_path(@chapterTestTime, :type => "thanks") %>
+
+      <%= link_to 'Send Thanks', new_tempo_capitulo_path(@chapterTestTime, :type => "thanks") %>
 
 <!--<div class="digitos"></div>            <div class="cronometro" id="cronometro">30 segundos</div>-->
 
@@ -253,7 +253,7 @@ Voltar
 
   <br><br>
 
-  
+
 <%= link_to "Prova do capítulo".html_safe, provas_path, :class => "btn btn-primary btn-lg" %>
 
 </center>
@@ -274,8 +274,8 @@ Voltar
       </div>
       <div class="modal-body">
 
-      <div align="justify"> 
-      
+      <div align="justify">
+
       </div>
 
       <br>
@@ -284,24 +284,24 @@ Voltar
 
      <!-- <img alt="Logo" src="app/assets/images/classe.png" /> -->
         <br>
-     
-      
+
+
       </center>
-       
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default btn-prev">Prev</button>
         <button type="button" class="btn btn-default btn-next" data-toggle="modal" data-target="#myModalClasse2" onclick="closenext()" data-dismiss="modal">Next</button>
-     
+
 
          <%= label_tag :tempo, class: "form-control", id: "cronometro" do %>
            <span id="counter">00:00:00</span>
-         <% end %> 
+         <% end %>
 
          <!-- <div class="digitos"></div>            <div class="cronometro" id="cronometro">30 segundos</div>-->
 
 
-     
+
 
          <button type="button" class="btn btn-default" data-dismiss="modal" onclick="para()">Fechar</button>
       </div>
@@ -324,7 +324,7 @@ Voltar
       </div>
       <div class="modal-body">
 
-      <div align="justify"> 
+      <div align="justify">
         </div>
 
          <center><%=image_tag("classe2.png", alt: "Logo", width: "600px")%></center>
@@ -353,16 +353,16 @@ Voltar
         <h4 class="modal-title" id="myModalLabel">Classe</h4>
       </div>
       <div class="modal-body">
-      
-      <h4> 
-        <div align="justify"> 
-        
+
+      <h4>
+        <div align="justify">
+
         </div>
 
          <center><%=image_tag("classe3.png", alt: "Logo", width: "600px")%></center>
 
       </h4>
-      
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default btn-prev" data-toggle="modal" data-target="#myModalClasse2" data-dismiss="modal">Prev</button>
@@ -386,17 +386,17 @@ Voltar
         <h4 class="modal-title" id="myModalLabel">Classe</h4>
       </div>
       <div class="modal-body">
-      
+
       <h4>
 
-        <div align="justify"> 
-        
+        <div align="justify">
+
         </div>
         <center><%=image_tag("classe4.png", alt: "Logo", width: "600px")%></center>
 
       </h4>
-      
-      
+
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default btn-prev" data-toggle="modal" data-target="#myModalClasse3" data-dismiss="modal">Prev</button>
@@ -424,20 +424,20 @@ Voltar
         <h4 class="modal-title" id="myModalLabel">Objeto</h4>
       </div>
       <div class="modal-body">
-      
+
       <h4>
-        <div align="justify"> 
+        <div align="justify">
         </div>
 
         <center><%=image_tag("objetos1.png", alt: "Logo", width: "600px")%></center>
-        
-        <div align="justify"> 
-        
+
+        <div align="justify">
+
         </div>
 
       </h4>
-      
-      
+
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default btn-prev">Prev</button>
@@ -459,11 +459,11 @@ Voltar
         <h4 class="modal-title" id="myModalLabel">Objeto</h4>
       </div>
       <div class="modal-body">
-      
+
       <h4>
-        
-        
-        <div align="justify"> 
+
+
+        <div align="justify">
        Um programa orientado a objetos possui um conjunto de objetos que interagem por meio de “trocas de mensagens”, ou seja, através da aplicação de métodos a objetos.<br><br>
       <u>Recomendação:</u> Estrutura de um objeto e implementação dos seus métodos privados.<br><br>
       <b>Encapsulação:</b> é o princípio de projeto pelo qual cada componente de um programa deve agregar toda a informação relevante para sua manipulação como uma unidade (uma cápsula). É um mecanismo poderoso quando aliado ao conceito de <u>ocultamento de informação</u>. <br><br>
@@ -472,8 +472,8 @@ Voltar
       </div>
 
       </h4>
-      
-      
+
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default btn-prev" data-toggle="modal" data-target="#myModalObjeto1" data-dismiss="modal">Prev</button>
@@ -494,19 +494,19 @@ Voltar
         <h4 class="modal-title" id="myModalLabel">Objeto</h4>
       </div>
       <div class="modal-body">
-      
+
       <h4>
-        
-        
-      <div align="justify"> 
+
+
+      <div align="justify">
      <b>Interface operacional:</b> conjunto de assinaturas dos métodos públicos. <br>
 
       Apenas a assinatura dos métodos é revelada, desssa maneira, detalhes internos sobre a operação do objeto não são conhecidos. Assim, o usuário do objeto pode trabalhar em níveis mais altos de abstração, sem se preocupar com detalhes internos da classe. Tal fator possibilita a simplificação de programas com funcionalidades complexas.
       <br><br><br><br><br><br><br><br><br><br><br><br>
       </div>
       </h4>
-      
-      
+
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default btn-prev" data-toggle="modal" data-target="#myModalObjeto2" data-dismiss="modal">Prev</button>
@@ -531,10 +531,10 @@ Voltar
         <h4 class="modal-title" id="myModalLabel">Herança</h4>
       </div>
       <div class="modal-body">
-      
+
       <h4>
-        
-        <div align="justify"> 
+
+        <div align="justify">
         <b>Herança:</b>  Mecanismo que possibilita que as características em comum a várias classes possam ser unidas e separadas em uma classe base, a superclasse. Assim, a partir da classe base, define-se as classes mais específicas.
         As subclasses (classes mais específicas) possuem características (atributos e métodos) da classe base acrescidos as suas características particulares.<br><br>
         <b>Formas de relacionamentos em herança:</b><br>
@@ -545,8 +545,8 @@ Voltar
 
 
       </h4>
-      
-      
+
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default btn-prev">Prev</button>
@@ -569,10 +569,10 @@ Voltar
         <h4 class="modal-title" id="myModalLabel">Herança</h4>
       </div>
       <div class="modal-body">
-      
+
       <h4>
-        
-        <div align="justify"> 
+
+        <div align="justify">
        Algumas linguagens possuem tamém outra forma de relacionamento:<br><br>
       <u>Contração:</u> A subclasse elimina métodos da superclasse com o objetivo de criar uma “classe mais simples”. Para realizar a eliminação, ocorre a redefinição de métodos com o corpo vazio. Porém esse mecanismo viola os princípios da substituição, pois uma subclasse não poderá ser utilizada em todos os pontos onde a superclasse puder ser utilizada. Esse mecanismo deve ser evitado, se for detectada sua necessidade, o melhor a fazer é reanalizar a hierarquia de classes e detectar as inconsisências.
       <br><br><br><br><br><br><br><br><br>
@@ -581,8 +581,8 @@ Voltar
 
 
       </h4>
-      
-      
+
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default btn-prev" data-toggle="modal" data-target="#myModalHeranca1" data-dismiss="modal">Prev</button>
@@ -597,7 +597,7 @@ Voltar
 
 
 <!--
-<div style="text-align: right;"> 
+<div style="text-align: right;">
 Fonte: Ricarte, I. "Programação Orientada a Objetos: <br>Uma Abordagem com Java". Unicamp: Campinas. <br>Disponível no <a href="http://www.dca.fee.unicamp.br/cursos/PooJava/Aulas/poojava.pdf">Link</a>. Acesso em: 20/09/2017.
 </div>
 -->

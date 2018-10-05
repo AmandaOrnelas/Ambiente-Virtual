@@ -1,2 +1,0 @@
-class AulasController < ApplicationController
-end

@@ -1,2 +1,127 @@
+<span id="counter-time" data-seconds='<%= @tempo_capitulo.tempo_total %>'></span>
+
+<script>
+
+
+
+  function formatatempo(segs) {
+    min = 0;
+    hr = 0;
+
+    while(segs>=60) {
+        if (segs >=60) {
+          segs = segs-60;
+          min = min+1;
+        }
+    }
+
+    while(min>=60) {
+      if (min >=60) {
+        min = min-60;
+        hr = hr+1;
+      }
+    }
+
+    if (hr < 10) {hr = "0"+hr}
+    if (min < 10) {min = "0"+min}
+    if (segs < 10) {segs = "0"+segs}
+    fin = hr+":"+min+":"+segs
+    return fin;
+  }
+  var segundos = parseInt($('#counter-time').data('seconds')); //inicio do cronometro
+  function conta() {
+    segundos++;
+    document.getElementById("counter").innerHTML = formatatempo(segundos);
+  }
+
+  function inicia(){
+    interval = setInterval("conta();",1000);
+  }
+
+  function para(){
+    let value = document.getElementById("counter").innerHTML;
+    let authToken = $('meta[name=csrf-token]').attr('content');
+    $.ajax({
+      type: 'POST',
+      url: '/tempo_capitulos/<%= @tempo_capitulo.id %>',
+      data: {
+        _method: 'PATCH',
+        authenticity_token: authToken,
+        tempo_capitulo: { tempo: segundos }
+      }
+    });
+    clearInterval(interval);
+    tagNome();
+  }
+
+  function zera(){
+    clearInterval(interval);
+    segundos = 0;
+    document.getElementById("counter").innerHTML = formatatempo(segundos);
+  }
+
+  function reinicia(){
+    clearInterval(interval);
+    segundos = 0;
+    document.getElementById("counter").innerHTML = formatatempo(segundos);
+    interval = setInterval("conta();",1000);
+  }
+
+
+
+  function tagNome() {
+    x = document.getElementById(cronometro.id);
+    y = x.innerHTML;
+
+    z = y.replace('<span id="counter">', '');
+    time = z.replace('</span>', '');
+    alert(time);
+
+    alert(a);
+
+    var user = $(".name").text();
+    var chapter = 1;
+
+    alert(valorDaDiv);
+
+    var value = time;
+    var el = document.createElement('script');
+    el.setAttribute('src', 'path_to_controller' + '?value=' + value);
+    document.body.appendChild(el);
+
+
+    $("#tempo").val(time);
+
+  }
+
+
+
+    clippy.load('F1', function(agent) {
+        // Do anything with the loaded agent
+        agent.show();
+        agent.animate();
+        agent.stop();
+        agent.speak('When all else fails, bind some paper together. My name is Clippy.');
+
+        agent.speak('outra fala');
+        agent.play('Searching');agent.play('Searching');
+        agente.stop();
+
+        if (counter=="00:00:01"){
+           alert("HI");
+
+        }
+    });
+
+</script>
+
+
+<if aluno.logged_in?>
+<div class="name" >Logado como: <%= current_user.name %></div>
+<end>
+
+
 <center> <h1><%= @capitulo.titulo %> </h1></center>
+<center><h2>Conteudo</h2></center>
 <%= render @capitulo.conteudos %>
+<%= link_to "Prova do capítulo", provas_path, :class => "btn btn-primary btn-lg" %>
