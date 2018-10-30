@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  resposta1: MyText
+  resposta2: MyText
+  resposta3: MyText
+  resposta4: MyText
+  resposta5: MyText
+  resposta6: MyText
+  resposta7: MyText
+  resposta8: MyText
+  resposta9: MyText
+  resposta10: MyText
+  prova: one
+  user: one
+
+two:
+  resposta1: MyText
+  resposta2: MyText
+  resposta3: MyText
+  resposta4: MyText
+  resposta5: MyText
+  resposta6: MyText
+  resposta7: MyText
+  resposta8: MyText
+  resposta9: MyText
+  resposta10: MyText
+  prova: two
+  user: two

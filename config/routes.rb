@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'opcaos/index'
+
+  get 'prova/index'
+
   resources :tempo_capitulos
   resources :administradors
   resources :alunos
@@ -7,6 +11,13 @@ Rails.application.routes.draw do
   resources :materias_users
   resources :conteudos
   resources :materias
+  resources :avaliacaos
+  resources :questaos
+  resources :alternativas
+  resources :prova_alunos
+
+
+  
 
 
   devise_for :users, :controllers => { registrations: 'registrations' }

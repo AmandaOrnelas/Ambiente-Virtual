@@ -1,0 +1,68 @@
+
+  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal-<%= avaliacao.titulo.parameterize %>-1">
+		<%= avaliacao.titulo %>
+  </button>
+
+  <% index2 = 1 %>
+  <% avaliacao.questaos.each do |questao| %>
+
+
+
+
+
+
+  <!-- Modal Page index-->
+  <div class="modal fade" id="modal-<%= avaliacao.titulo.parameterize %>-<%= index2 %>" tabindex2="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="myModalLabel"> <%= questao.questao %> </h4>
+          </div>
+          <div class="modal-body">
+          <div align="justify">
+          </div>
+          <br>
+          <center>
+					<%= form_with model: @prova_aluno, local: true do |f| %>
+                     	<% questao.alternativas.each do |alternativa| %>
+                     		<%= render 'prova_alunos/form' %>
+
+                     			<%= f.radio_button :resp1, alternativa.opcao1 %> <%= alternativa.opcao1 %><br />
+    							<%= f.radio_button :resp1, alternativa.opcao2 %> <%= alternativa.opcao2 %><br />
+    							<%= f.radio_button :resp1, alternativa.opcao3 %> <%= alternativa.opcao3 %><br />
+    							<%= f.radio_button :resp1, alternativa.opcao4 %> <%= alternativa.opcao4 %><br />
+						   		<br>
+							   	<%= f.submit %>
+						<% end %>
+		
+                     <% end %>
+
+          </center>
+          </div>
+          <div class="modal-footer">
+          
+            <% if index2 != avaliacao.questaos.size %>
+              <button type="button" class="btn btn-default btn-next" data-toggle="modal" data-target="#modal-<%= avaliacao.titulo.parameterize %>-<%= index2 + 1 %>" onclick="closenext()" data-dismiss="modal">Next => </button>
+            <% end %>
+
+             <%= label_tag :tempo, class: "form-control", id: "cronometro" do %>
+               <span id="counter">00:00:00</span>
+             <% end %>
+
+             <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+    <% index2 += 1 %>
+  <% end %>
+
+
+<br><br>
+
+</center>
+

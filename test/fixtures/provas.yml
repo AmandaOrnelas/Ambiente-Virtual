@@ -1,0 +1,47 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  questao1: MyText
+  resposta1: MyText
+  questao2: MyText
+  resposta2: MyText
+  questao3: MyText
+  resposta3: MyText
+  questao4: MyText
+  resposta4: MyText
+  questao5: MyText
+  resposta5: MyText
+  questao6: MyText
+  resposta6: MyText
+  questao7: MyText
+  resposta7: MyText
+  questao8: MyText
+  resposta8: MyText
+  questao9: MyText
+  resposta9: MyText
+  questao10: MyText
+  resposta10: MyText
+  capitulo: one
+
+two:
+  questao1: MyText
+  resposta1: MyText
+  questao2: MyText
+  resposta2: MyText
+  questao3: MyText
+  resposta3: MyText
+  questao4: MyText
+  resposta4: MyText
+  questao5: MyText
+  resposta5: MyText
+  questao6: MyText
+  resposta6: MyText
+  questao7: MyText
+  resposta7: MyText
+  questao8: MyText
+  resposta8: MyText
+  questao9: MyText
+  resposta9: MyText
+  questao10: MyText
+  resposta10: MyText
+  capitulo: two

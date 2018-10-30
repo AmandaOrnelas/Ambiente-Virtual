@@ -98,11 +98,15 @@
 
     clippy.load('F1', function(agent) {
         // Do anything with the loaded agent
+
         agent.show();
         agent.animate();
         agent.stop();
         agent.speak('When all else fails, bind some paper together. My name is Clippy.');
 
+
+      
+        
         agent.speak('outra fala');
         agent.play('Searching');agent.play('Searching');
         agente.stop();
@@ -116,6 +120,10 @@
 </script>
 
 
+
+
+
+
 <if aluno.logged_in?>
 <div class="name" >Logado como: <%= current_user.name %></div>
 <end>
@@ -124,4 +132,11 @@
 <center> <h1><%= @capitulo.titulo %> </h1></center>
 <center><h2>Conteudo</h2></center>
 <%= render @capitulo.conteudos %>
-<%= link_to "Prova do capítulo", provas_path, :class => "btn btn-primary btn-lg" %>
+<br>
+<center><h2>Avaliação</h2>
+<%= render @capitulo.avaliacaos %>
+</center>
+
+
+
+

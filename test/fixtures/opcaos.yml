@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  opcao1: MyText
+  opcao2: MyText
+  opcao3: MyText
+  opcao4: MyText
+  prova: one
+
+two:
+  opcao1: MyText
+  opcao2: MyText
+  opcao3: MyText
+  opcao4: MyText
+  prova: two

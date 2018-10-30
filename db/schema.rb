@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181005205630) do
+ActiveRecord::Schema.define(version: 20181030145347) do
 
   create_table "administradores", force: :cascade do |t|
     t.string "nome"
@@ -20,6 +20,17 @@ ActiveRecord::Schema.define(version: 20181005205630) do
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.index ["email"], name: "index_administradores_on_email", unique: true
+  end
+
+  create_table "alternativas", force: :cascade do |t|
+    t.text "opcao1"
+    t.text "opcao2"
+    t.text "opcao3"
+    t.text "opcao4"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "questao_id"
+    t.index ["questao_id"], name: "index_alternativas_on_questao_id"
   end
 
   create_table "alunos", force: :cascade do |t|
@@ -42,6 +53,14 @@ ActiveRecord::Schema.define(version: 20181005205630) do
     t.index ["conteudo_id"], name: "index_aulas_on_conteudo_id"
   end
 
+  create_table "avaliacaos", force: :cascade do |t|
+    t.string "titulo"
+    t.integer "capitulo_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["capitulo_id"], name: "index_avaliacaos_on_capitulo_id"
+  end
+
   create_table "capitulos", force: :cascade do |t|
     t.string "titulo"
     t.text "tempo_medio"
@@ -59,6 +78,34 @@ ActiveRecord::Schema.define(version: 20181005205630) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["capitulo_id"], name: "index_conteudos_on_capitulo_id"
+  end
+
+  create_table "prova_alunos", force: :cascade do |t|
+    t.text "resposta1"
+    t.text "resposta2"
+    t.text "resposta3"
+    t.text "resposta4"
+    t.text "resposta5"
+    t.text "resposta6"
+    t.text "resposta7"
+    t.text "resposta8"
+    t.text "resposta9"
+    t.text "resposta10"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "avaliacao_id"
+    t.index ["avaliacao_id"], name: "index_prova_alunos_on_avaliacao_id"
+    t.index ["user_id"], name: "index_prova_alunos_on_user_id"
+  end
+
+  create_table "questaos", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "questao"
+    t.string "respostacerta"
+    t.integer "avaliacao_id"
+    t.index ["avaliacao_id"], name: "index_questaos_on_avaliacao_id"
   end
 
   create_table "tempo_capitulos", force: :cascade do |t|
